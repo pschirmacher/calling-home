@@ -43,7 +43,7 @@ This creates a Clojure function which you can then pass into another Clojure fun
 	core = Clj.new "clojure.core"
 	result = core.map(tracing_inc, [1,2,3,4,5,6])
 
-The difference to using ruby's map/collect is that the Clojure version returns a lazy sequence. The above code does not
+The difference to using Ruby's map/collect is that the Clojure version returns a lazy sequence. The above code does not
 actually perform any processing of the given vector until 'result' is consumed.
 
 	result.first

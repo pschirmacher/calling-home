@@ -23,9 +23,9 @@ Be aware that this is all experimental and should not be used in production unle
 Simply instantiate Clj and pass in the desired namespace (which must exist in a 'require'd JAR!). You can then
 call functions like so:
 
-core = Clj.new "clojure.core"
-core.inc 1
-=> 2
+	core = Clj.new "clojure.core"
+	core.inc 1
+	=> 2
 
 Substitute hyphens (e.g. "my-func") with underscores (e.g. "my_func").
 
@@ -33,21 +33,21 @@ Substitute hyphens (e.g. "my-func") with underscores (e.g. "my_func").
 
 Pass an arbitrary block to the class function Clj.fn:
 
-tracing_inc = Clj.fn do |x|
-  puts "processing #{x}"
-  x + 1
-end
+	tracing_inc = Clj.fn do |x|
+	  puts "processing #{x}"
+	  x + 1
+	end
 
 This creates a Clojure function which you can then pass into another Clojure function, e.g. map:
 
-core = Clj.new "clojure.core"
-result = core.map(tracing_inc, [1,2,3,4,5,6])
+	core = Clj.new "clojure.core"
+	result = core.map(tracing_inc, [1,2,3,4,5,6])
 
 The difference to using ruby's map/collect is that the Clojure version returns a lazy sequence. The above code does not
 actually perform any processing of the given vector until 'result' is consumed.
 
-result.first
-=> 2
+	result.first
+	=> 2
 
 This will process the first element of [1,2,3,4,5,6] and return 2.
 
@@ -55,4 +55,4 @@ This will process the first element of [1,2,3,4,5,6] and return 2.
 
 If you've JRuby set up (jruby/bin added to PATH and JAVA_HOME set) just run the script 'example.rb':
 
-jruby example.rb
+	jruby example.rb

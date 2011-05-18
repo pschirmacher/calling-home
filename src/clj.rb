@@ -28,7 +28,7 @@ class Clj
     clj_keyword.invoke str
   end
   
-  def self.eval(single_form)
+  def self.evaluate(single_form)
     core = Clj.new "clojure.core"
     core.eval core.read_string(single_form)
   end
@@ -38,7 +38,7 @@ class Clj
   def initialize(namespace)
     @namespace = namespace
     clj_require = Java::clojure.lang.RT.var("clojure.core", "require")
-    clj_require.invoke Clj.symbol(namespace)
+    clj_require.invoke Clj.symbol(namespace) unless namespace == "clojure.core"
   end
   
   def method_missing(method_sym, *args)

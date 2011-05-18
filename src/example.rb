@@ -17,6 +17,6 @@ result = core.map(tracing_inc, [1,2,3,4,5,6])
 puts result.first
 
 # evaluating a clojure form (persistent array map)
-the_map = Clj.eval "{:one 1 :two 2}"
+the_map = Clj.evaluate "{:one 1 :two 2}"
 one_key = Clj.keyword "one"
 puts "one => #{the_map[one_key]}"
